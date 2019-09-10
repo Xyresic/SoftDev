@@ -1,6 +1,6 @@
 import random
 def printRandFromDict(dictionary):
-    keys = dictionary.keys()
+    keys = list(dictionary.keys())
     team = dictionary[keys[random.randrange(len(keys))]]
     print(team[random.randrange(len(team))])
 KREWES = {'orpheus':['Emily','Kevin'],
