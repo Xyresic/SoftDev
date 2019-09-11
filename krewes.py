@@ -1,7 +1,10 @@
 import random
 def printRandFromDict(dictionary):
+    #Create a list of keys
     keys = list(dictionary.keys())
+    #Generate a random team
     team = dictionary[keys[random.randrange(len(keys))]]
+    #Print a random member fo the generated team
     print(team[random.randrange(len(team))])
 KREWES = {
 	'orpheus': ['Emily', 'Kevin', 'Vishwaa', 'Eric', 'ray', 'Jesse', 'Tiffany', 'Amanda', 'Junhee', 'Jackie ', 'Tyler', 'Emory', 'Ivan', 'Elizabeth', 'Pratham', 'Shaw', 'Eric', 'Yaru', 'Kelvin', 'Hong Wei', 'Michael', 'Kiran', 'Amanda', 'Joseph', 'Tanzim', 'David', 'Yevgeniy'],
