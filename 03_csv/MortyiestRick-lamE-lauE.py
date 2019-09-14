@@ -25,8 +25,10 @@ def weightedRandFromDict(dictionary):
 
 results = []
 tests = 100000
+
 for i in range(tests):
     results.append(weightedRandFromDict(dictionary))
+
 for job in list(dictionary.keys()):
     print(job)
-    print("actual: "+str(dictionary[job])+" experimental: "+str(results.count(job)*100.0/tests))
+    print("actual: "+str(dictionary[job])+" experimental: "+str(results.count(job)*100.0/tests), end="\n\n")
