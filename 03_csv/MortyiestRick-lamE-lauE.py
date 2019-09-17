@@ -1,3 +1,8 @@
+#Eric Lam
+#SoftDev1 pd1
+#K6 -- Divine your Destiny!
+#2019-09-17
+
 import random
 
 """
@@ -19,6 +24,9 @@ data = data[1:len(data) - 1]
 for item in data:
     splits = item.rsplit(",", 1)
     dictionary[splits[0].strip("\"")] = float(splits[1])
+
+#add unemployed option
+dictionary["Unemployed"]=0.2
 
 """
 -------------------------------------------------------------------
