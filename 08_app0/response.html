@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html lang="en-US">
+        <head>
+            <style>
+                .container {{
+                            position: relative;
+                            text-align: center;
+                            }}
+                .text {{
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    }}
+                img {{
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    height: 43%;
+                    width: 43%;
+                    z-index: -1;
+                    }}
+                .home {{
+                    position: fixed;
+                    top: 0;
+                    right: 0;
+                    }}
+            </style>
+            <meta charset="utf-8" >
+            <title>Magic 8 Ball</title>
+        </head>
+        <body>
+            <h1 style="text-align: center;">Click the ball to shake again!</h1>
+            <div class='container'>
+            <img src="static/Magic_eight_ball.png" alt="Magic 8 Ball" usemap='#ball'>
+                <map name='ball'>
+                    <area shape='circle' coords='410,410,395' href='response' alt='Magic 8 Ball'>
+                </map>
+            <div class="text"><h4 style="color: white;">{}</h4></div>
+            </div>
+            <div class='home'><button type='button' onclick="location.href='http://127.0.0.1:5000/old';">
+            Home
+            </button></div>
+        </body>
+    </html>
