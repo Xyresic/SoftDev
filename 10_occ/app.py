@@ -5,30 +5,31 @@
 
 from random import choices
 from flask import Flask, render_template
+import csv
 app = Flask(__name__)
+__ppath__ = __file__[:__file__.rfind('/')] # python file's parent directory
 
 def weightedRandFromDict(dictionary):
-    keys = list(dictionary.keys())
-    weights = list(dictionary.values())
+    items = dictionary.items()
+    keys = [item[0] for item in items]
+    weights = [item[1] for item in items]
     return choices(keys,weights=weights,k=1)[0]
+
+def gen_dict():
+    lines = [line for line in csv.reader(open(__ppath__ + "/utl/occupations.csv"))] # uses a csv.reader to parse the file
+    lines = [(line[0],float(line[1])) for line in lines[1:-2]]
+    lines.append(("Unemployed",0.2)) # removes the column names and "Total" row, re-expresses as a list of tuples to enable dictionary conversion
+    return dict(lines)
 
 @app.route("/")
 def root():
-    return "You're in the wrong <a href=http://127.0.0.1:5000/occupyflaskst"">place</a>"
+    return "You're in the wrong place, <a href=\"http://127.0.0.1:5000/occupyflaskst\">this</a> is where you want to be"
 
 @app.route("/occupyflaskst")
 def fill_table():
-    table = {}
-    csv = open("static/occupations.csv")
-    jobs = csv.read().rstrip("\n").split("\n")
-    csv.close()
-    jobs.insert(-1,"Unemployed,0.2")
-    for item in jobs[1:-1]:
-        split = item.rsplit(",", 1)
-        table[split[0].strip("\"")] = float(split[1])
-    generated = weightedRandFromDict(table)
-    jobs = [n.replace('\"','').rsplit(',',1) for n in jobs]
-    return render_template("occtempl.html",randJob=generated,heading=jobs[0],data=jobs[1:-1],total=jobs[-1])
+    occs = gen_dict()
+    selected = weightedRandFromDict(occs)
+    return render_template("occtempl.html",randJob=selected,data=occs.items())
 
 if __name__ == "__main__":
     app.debug = True

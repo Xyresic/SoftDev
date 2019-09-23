@@ -8,19 +8,15 @@
     Welcome to Gorb's Job Giveaway! You are now entitled to claim you're employed in the following field: <b>{{randJob}}</b>.
     <table>
       <tr>
-        <th style="padding-right: 50px">{{heading[0]}}</th>
-        <th>{{heading[1]}}</th>
+        <th style="padding-right: 50px">Occupation</th>
+        <th>Chance</th>
       </tr>
-      {% for i in data %}
+      {% for item in data %}
         <tr>
-          <td style="padding-right: 50px">{{i[0]}}</td>
-          <td>{{i[1]}}</td>
+          <td style="padding-right: 50px">{{item[0]}}</td>
+          <td>{{item[1]}}</td>
         </tr>
       {% endfor %}
-      <tr>
-        <td style="padding-right: 50px"><b>{{total[0]}}</b></td>
-        <td><b>{{total[1]}}</b></td>
-      </tr>
     </table>
   </body>
 </html>
