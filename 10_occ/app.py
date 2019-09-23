@@ -1,7 +1,7 @@
-#Eric "Rick" Lam
+#Eric "Rick" Lam, Yevgeniy Gorbachev
 #SoftDev1 pd1
-#K10 -- Occupat
-#2019-09-19
+#K10 -- Jinja tuning
+#2019-09-22
 
 from random import choices
 from flask import Flask, render_template
