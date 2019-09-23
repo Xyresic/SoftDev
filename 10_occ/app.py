@@ -16,7 +16,7 @@ def weightedRandFromDict(dictionary):
     return choices(keys,weights=weights,k=1)[0]
 
 def gen_dict():
-    lines = [line for line in csv.reader(open(__ppath__ + "/utl/occupations.csv"))] # uses a csv.reader to parse the file
+    lines = [line for line in csv.reader(open(__ppath__ + "/data/occupations.csv"))] # uses a csv.reader to parse the file
     lines = [(line[0],float(line[1])) for line in lines[1:-2]]
     lines.append(("Unemployed",0.2)) # removes the column names and "Total" row, re-expresses as a list of tuples to enable dictionary conversion
     return dict(lines)
