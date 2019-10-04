@@ -1,7 +1,7 @@
 #Team Meseeks (Eric Lam and Michael Zhang)
 #SoftDev1 pd1
-#K15 -- Do I Know You?
-#2019-10-01
+#K16 -- Oh yes, perhaps I do…
+#2019-10-03
 
 import os
 from flask import Flask, render_template, request, session, redirect, url_for, flash
