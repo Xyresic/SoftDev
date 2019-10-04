@@ -1,0 +1,14 @@
+{% extends 'welcome.html' %}
+{% block header %}
+    <title>Login Page</title>
+    <h1>Log In Here :)</h1>
+{% endblock %}
+{% block body %}
+    <form method='post' action = "/check">
+      Username:<br>
+      <input type="text" name="username"><br>
+      Password:<br>
+      <input type="password" name="password"><br>
+      <input type = "submit" name = "submitbutton" value="Log In">
+    </form>
+{% endblock %}

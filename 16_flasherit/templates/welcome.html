@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block header %}
+        <title>Welcome</title>
+        <h1>Welcome {{user}}! :)</h1>
+    {% endblock %}
+  </head>
+  <body>
+    {% for m in get_flashed_messages() %}
+        {{m}}<br>
+    {% endfor %}
+    {% block body %}
+        <a href='https://www.xkcd.com'>Bored?</a>
+        <form method="post" action="/logout">
+          <input type="submit" name='logout' value='Log Out'>
+        </form>
+    {% endblock %}
+    {% block footer %}
+        &copy; Copyright Eric Lam & Michael Zhang 2019
+    {% endblock %}
+  </body>
+</html>
