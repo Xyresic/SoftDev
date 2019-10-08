@@ -1,4 +1,4 @@
-#Eric Lam and Ayham Alnasser
+#Team Maz Hatters - Eric Lam and Ayham Alnasser
 #SoftDev1 pd1
 #K17 -- No Trouble
 #2019-10-10
