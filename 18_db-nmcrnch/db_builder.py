@@ -16,6 +16,7 @@ c = db.cursor()               #facilitate db ops
 
 def to_table(data):
     table = data[:-4]
+    c.execute('DROP TABLE IF EXISTS ' + table + ';')
     with open(data,'r') as file:
         reader = csv.reader(file)
         headings = reader.__next__()
