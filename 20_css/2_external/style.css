@@ -1,0 +1,31 @@
+body {
+            background: grey;
+            font: bold 1em Arial;
+        }
+        h1 {
+            background: lightgrey;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            padding-right: 100px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        .main {
+            font-weight: normal;
+        }
+        .footer {
+            text-align: right;
+            background: dimgrey;
+            color: grey;
+        }
