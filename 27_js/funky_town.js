@@ -1,3 +1,8 @@
+//Team Cleric - Eric Lam & Clement Chan
+//SoftDev1 pd1
+//K27 -- Sequential Progression
+//2019-12-10
+
 var fact = (n) => {
     if (n < 2) {
         return 1;
@@ -30,7 +35,7 @@ var gcd = (a, b) => {
     }
     return a
 };
-var students = ['Eric', 'David','Michael'];
+var students = ['Eric', 'David','Michael','Clement'];
 var randomStudent = () => {
     return students[Math.floor(Math.random() * students.length)];
 };
