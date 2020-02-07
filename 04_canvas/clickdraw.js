@@ -37,7 +37,7 @@ var toggle = () => {
 var clear = () => {
     context.clearRect(0,0,400,400);
 };
-
+32
 var draw = (event) => {
     var bounds = canvas.getBoundingClientRect();
     x = event.clientX-bounds.left;
