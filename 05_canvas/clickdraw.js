@@ -1,3 +1,11 @@
+//Eric Lam and Amanda Zheng (Team Lambda)
+//SoftDev1 pd1
+//K#05 -- Canvas
+//2020-02-06
+
+//We did not use e.preventDefault(); however e.preventDefault basically cancels some event
+//Say if you had a link and you put e.preventDefault(); then the event would prevent the link from taking you to the page as a normal link would
+//the preventDefault disables the action done by the event
 var canvas = document.getElementById('slate');
 var context = canvas.getContext('2d');
 var toggleButton = document.getElementById('toggle');
@@ -38,20 +46,26 @@ var clear = () => {
     context.clearRect(0,0,400,400);
 };
 
-var draw = (event) => {
-    var bounds = canvas.getBoundingClientRect();
-    x = event.clientX-bounds.left;
-    y = event.clientY-bounds.top;
-    context.fillStyle = color.value;
-    if (state) {
-        context.fillRect(x-50,y-55,width,height);
-    } else {
-        context.beginPath();
-        context.arc(x,y,radius,0,2*Math.PI);
-        context.closePath();
-        context.fill();
-    }
-};
+canvas.addEventListener('mousedown', e => {
+  context.fillStyle = color.value;
+  var x = e.offsetX;
+  //offsetX gives the x-coordinate of the mouse pointer relative to the target element
+  var y = e.offsetY;
+  //offsetX gives the y-coordinate of the mouse pointer relative to the target element
+  if (state){
+    context.fillRect(x, y, width, height);
+  }
+  else {
+    context.beginPath();
+    //ctx.beginPath() tells the canvas to begin a path or resets current path (think of it as putting your pencil down on paper)
+    context.arc(x, y, radius, 0, 2 * Math.PI);
+    context.closePath();
+    //context.closePath() tells the canvas to close the path
+    // this is important because if we don't close it and we try to fill path, it tries to fill every path that you didn't close
+    context.fill();
+  }
+});
+
 toggleButton.addEventListener('click',toggle);
 clearButton.addEventListener('click',clear);
 canvas.addEventListener('click', (event) => {draw(event);});
