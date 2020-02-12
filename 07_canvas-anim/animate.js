@@ -1,3 +1,8 @@
+//Eric Lam and Raymond Lee (Team Raygun)
+//SoftDev1 pd1
+//K#07 -- Canvas Animaton
+//2020-02-12
+
 var startButton = document.getElementById('start');
 var stopButton = document.getElementById('stop');
 var canvas = document.getElementById('playground');
