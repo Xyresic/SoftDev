@@ -1,6 +1,6 @@
 //Eric Lam and Raymond Lee (Team Raygun)
 //SoftDev1 pd1
-//K#07 -- Canvas Animaton
+//K#07 -- Canvas Animation
 //2020-02-12
 
 var startButton = document.getElementById('start');
