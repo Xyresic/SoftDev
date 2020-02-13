@@ -1,7 +1,7 @@
 //Eric Lam and Raymond Lee (Team Raygun)
 //SoftDev1 pd1
-//K#07 -- Canvas Animation
-//2020-02-12
+//K#08 -- Screen Saving
+//2020-02-13
 
 var startButton = document.getElementById('start');
 var stopButton = document.getElementById('stop');
