@@ -13,17 +13,17 @@ col = db.restaurants
         col.insert_one(loads(doc[:-1]))'''
 
 def filter_borough(bor):
-    return [r for r in col.find({'borough':bor})]
+    return list(col.find({'borough':bor}))
 
 
 def filter_zip(zip):
-    return [r for r in col.find({'address.zipcode':zip})]
+    return list(col.find({'address.zipcode':zip}))
 
 def filter_zip_grade(zip,grade):
-    return [r for r in col.find({'address.zipcode':zip,'grades.0.grade':grade})]
+    return list(r for r in col.find({'address.zipcode':zip,'grades.0.grade':grade}))
 
 def filter_zip_score(zip,score):
-    return [r for r in col.find({'address.zipcode':zip,'grades.0.score':{'$lt':score}})]
+    return list(r for r in col.find({'address.zipcode':zip,'grades.0.score':{'$lt':score}}))
 
 def filter_radius(lat,long,r):
-    return [r for r in col.find({'address.coord':{'$geoWithin':{'$centerSphere':[[long,lat],r/6371000]}}})]
+    return list(col.find({'address.coord':{'$geoWithin':{'$centerSphere':[[long,lat],r/6371000]}}}))
