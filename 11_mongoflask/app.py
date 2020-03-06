@@ -31,8 +31,9 @@ def filter_desc(desc):
 
 @app.route('/', methods=['GET','POST'])
 def root():
-    return ''
+    return render_template("base.html")
 
-if __name__ == '__main__':
-    app.debug = True
-    app.run()
+#if __name__ == '__main__':
+#    app.debug = True
+#    app.run()
+
