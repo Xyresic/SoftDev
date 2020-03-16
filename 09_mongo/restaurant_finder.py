@@ -15,7 +15,6 @@ col = db.restaurants
 def filter_borough(bor):
     return list(col.find({'borough':bor}))
 
-
 def filter_zip(zip):
     return list(col.find({'address.zipcode':zip}))
 

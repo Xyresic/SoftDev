@@ -18,7 +18,7 @@ def filter_id(id):
     return list(col.find({'id':id}))
 
 def filter_title(name):
-    return list(col.find({'name':name}))
+    return list(col.find({'name':{'$regex':'(?i).*%s.*' % name.lower()}}))
 
 def filter_season_num(season,num):
     return list(col.find({'season':season,'number':num}))
