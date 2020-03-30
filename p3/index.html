@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Continuous Integration</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid">
+  <h1 class="text-center">Continuous Integration</h1>
+  <p class="text-center">
+    <small>
+      Team Cowardly Pirick - William Cao & Eric Lam <br/>
+      SoftDev pd1 <br/>
+      P03: TEDxSoftDev VII <br/>
+      2019-03-30 <br/>
+    </small>
+  </p>
+
+  <div class="container-fluid mt-4">
+    <h2 class="border-bottom">What is Continuous Integration?</h2>
+    <p class="ml-4">
+      <strong class="text-success">Continuous Integration (CI)</strong> is a development practice where developers
+      <strong class="text-success">integrate</strong> code into a shared repository frequently, preferably several
+      times a day. Each <strong class="text-success">integration</strong> can then be verified by an automated build
+      and automated tests.
+    </p>
+  </div>
+
+  <div class="container-fluid mt-4">
+    <h2 class="border-bottom">Why should I use this?</h2>
+    <ul>
+      <li>Receive Instant Feedback</li>
+      <li>Be Confident in Final Product</li>
+      <li>Facilitate Communication</li>
+    </ul>
+  </div>
+
+  <div class="container-fluid mt-4">
+    <h2 class="border-bottom">How do I use this?</h2>
+    <p class="mb-0">There are 10 keys to follow:</p>
+    <ol start="0">
+      <li><a href="#key-0">Maintain a code repository</a></li>
+      <li><a href="#key-1">Automate your build</a></li>
+      <li><a href="#key-2">Make your build self-testing</a></li>
+      <li><a href="#key-3">Commit daily to the baseline</a></li>
+      <li><a href="#key-4">Build every commit to the baseline</a></li>
+      <li><a href="#key-5">Keep your builds fast</a></li>
+      <li><a href="#key-6">Clone the production environment and test there</a></li>
+      <li><a href="#key-7">Make it easy to get the latest deliverables</a></li>
+      <li><a href="#key-8">Keep the team updated on the codebase status</a></li>
+      <li><a href="#key-9">Automate build deployment</a></li>
+    </ol>
+  </div>
+
+  <div id="key-0" class="container-fluid mt-4">
+    <h2 class="border-bottom">0. Maintain a code repository</h2>
+    <div class="container-fluid">
+      <p>
+        A <strong class="text-success">code repository</strong> is an archive that stores source
+        code in an organized manner. The good news is that we already do this! ...
+        <strong class="text-danger">Kind of.</strong> The keyword is
+        <strong class="text-success">maintain</strong>. Maintaining a repository is more than simply
+        having one. Maintaining entails keeping the master branch <strong class="text-success">pristine</strong>
+        and the commits <strong class="text-success">readable</strong>. Doing so will require the use of
+        <a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging" target="_blank" style="color:inherit">
+          <strong class="text-success">branching</strong> and <strong class="text-success">merging</strong>
+        </a>
+        <a href="#footnote-1"><sup><i>0.1</i></sup></a>.
+      </p>
+
+      <h3>Version Control</h3>
+      <div class="container-fluid">
+        <p>
+          To maintain a code repository, it is necessary to have <strong class="text-success">version control</strong>
+          software. Version control software records changes to files, allowing you to recall previous versions and
+          providing a running history. Popular version control software includes
+          <a href="https://git-scm.com/" target="_blank">Git</a> and
+          <a href="https://visualstudio.microsoft.com/vs/features/collaborate/" target="_blank">Visual Studio Team Services</a>.
+        </p>
+      </div>
+
+      <h3>Source Code Hosting</h3>
+      <div class="container-fluid">
+        <p>
+          Once you have a version control system set up, it is necessary to have a <strong class="text-success">hosting service</strong>
+          so that your source code is accessible to all developers at all times. Popular source code hosting services include
+          <a href="https://github.com/" target="_blank">GitHub</a>, <a href="https://about.gitlab.com/" target="_blank">GitLab</a>,
+          <a href="https://bitbucket.org/product" target="_blank">Bitbucket</a>, and <a href="https://sourceforge.net/" target="_blank">SourceForge</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="key-1" class="container-fluid mt-4">
+    <h2 class="border-bottom">1. Automate your build</h2>
+    <div class="container-fluid">
+      <p>
+        <strong class="text-success">Building</strong> is simply the process of compiling your source code to get a working
+        application. Automating your build means being able to build your entire system with a <strong class="text-success">single</strong>
+        command. This can be done with tools such as
+        <a href="https://www.gnu.org/software/bash/" target="_blank">Bash</a>, <a href="https://www.npmjs.com/" target="_blank">npm</a>, and
+        <a href="https://www.gnu.org/software/make/" target="_blank">make</a>.
+      </p>
+      <p>Here are some tutorials on scripting:</p>
+      <ul>
+        <li><a href="https://moodyrahman.github.io/shell-script-tutorial/" target="_blank">Moody's Shell Scripting Tutorial </a></li>
+        <li><a href="https://prathamrawat.github.io/DevLog-Updating-Script/" target="_blank">Pratham and Emily's Introduction to Shell Scripting</a></li>
+        <li><a href="https://jchen9182.github.io/" target="_blank">Justin's Shell Scripting Guide</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="key-2" class="container-fluid mt-4">
+    <h2 class="border-bottom">2. Make your build self-testing</h2>
+    <div class="container-fluid">
+      <p>
+        A vital part of continuous integration is to run <strong class="text-success">automated tests</strong>.
+        This lets you catch errors and bugs quickly and helps ensure that your master branch always contains a functioning
+        version of your application.
+      </p>
+
+      <h3>When to run tests</h3>
+      <div class="container-fluid">
+        <p>
+          Tests must be run <strong class="text-success">after every build</strong> to ensure your builds are functional.
+          Additional tests can and should be run sometime before building, such as before pushing to the repository.
+          This is to find errors in formatting and/or syntax that might hold up the building process.
+        </p>
+      </div>
+
+      <h3>Client-side vs. Server-side Testing</h3>
+      <div class="container-fluid">
+        <p>
+          Tests can be run either <strong class="text-success">client-side</strong> or <strong class="text-success">server-side</strong>.
+          Client-side testing means running tests locally and can be used for personalized tests. Server-side testing refers to running
+          tests on a shared machine. This can be used to enforce formatting and ensure code performs as it should on a standard machine.
+        </p>
+      </div>
+
+      <h3 id="backlink-2">How to test</h3>
+      <div class="container-fluid">
+        <p>
+          Local tests can be accomplished through <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks" target="_blank">
+          <strong class="text-success">Git hooks</strong></a><a href="#footnote-2"><sup><i>2.1</i></sup></a>, which are scripts
+          that are automatically run when a git action is performed. Hooks can be run before/after/during many common actions, such as
+          committing, pushing, and merging. A <a href="#hooks">tutorial</a> is included near the end of this page.
+        </p>
+        <p>
+          Server-side tests can be accomplished through <strong class="text-success">GitHub Actions</strong>, which will be
+          discussed in <a href="#key-5">Key 5</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="key-3" class="container-fluid mt-4">
+    <h2 class="border-bottom">3. Commit daily to the baseline</h2>
+    <div class="container-fluid">
+      <p>
+        It is important to commit frequently, preferably <strong class="text-success">daily</strong>, to the baseline (master branch). This
+        forces developers to communicate frequently, ensuring developers are always aware of changes and the current state of the project.
+        Additionally, by committing frequently, conflicts between developers can be found and therefore resolved quickly.
+      </p>
+    </div>
+  </div>
+
+  <div id="key-4" class="container-fluid mt-4">
+    <h2 class="border-bottom">4. Build every commit to the baseline</h2>
+    <div class="container-fluid">
+      <p>
+        By building every commit to the baseline and automatically testing them, you get frequently tested builds.
+        This ensures that your baseline stays healthy with minimal issues.
+      </p>
+      <p>
+        Additionally, your client will always have a working version of your project, leading to greater customer satisfaction.
+      </p>
+    </div>
+  </div>
+
+  <div id="key-5" class="container-fluid mt-4">
+    <h2 class="border-bottom">5. Keep your builds fast</h2>
+    <div class="container-fluid">
+      <p>
+        Because you are committing multiple times a day, and each commit requires testing to be run,
+        <strong class="text-success">you want tests to be fast</strong>.
+        <strong class="text-success">Run fast tests locally </strong> (on your machine) and
+        <strong class="text-success"> slower tests on a server </strong>. A local test would be checking if
+        your sorting algorithm works while a slower test would be checking if all your database queries work.
+      </p>
+
+      <h3>Solutions?</h3>
+      <div class="ml-3">
+        <h4>Local tests:</h4>
+        <p class="ml-3">
+          For local tests, we can use <strong class="text-success">git hooks to run tests on every commit</strong>, and
+          use a testing framework. <strong class="text-success"> unittest </strong> is a built in python framework, but
+          you can use external ones as well.
+        </p>
+        <h4>Server tests:</h4>
+        <div class="ml-3">
+          <p>Github allows us to run tests (called <strong class="text-success">Actions</strong>) on their machines (for free!)</p>
+          <img src="images/build_fast2.png" class="img-fluid" alt="Picture of github actions">
+          <p class="text-center mt-2">
+            In this Github Action, a test was running on a server for over <strong class="text-danger">2 hours</strong>!
+            The tests that failed are highlighted in red. We can also tie this into our README.md to have a badge reading
+            if the latest tests are passing or not.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="key-6" class="container-fluid mt-4">
+    <h2 class="border-bottom">6. Clone the production environment and test there</h2>
+    <div class="container-fluid">
+      <p>
+        You should <strong class="text-success"> keep your build up-to-date with what is currently running on production</strong>. This not only
+        includes code, but also system libraries, package versions, and language version. This will prevent situations
+        where a team member says, "it works on my machine."
+      </p>
+      <div class="text-center">
+        <img src="images/docker.svg" class="col-4" style="background-color: black;">
+      </div>
+      <p class="mt-2">
+        A popular way to make sure every team member is working on the production version is by using <span class="text-success">Docker</span>.
+        Docker allows you to create a dockerfile (dockerfile is to computer like requirements.txt is to pip3 packages) that describes the operating system version, system packages, etc.
+        Docker goes beyond the scope of this presentation, but here are some <a href="#footnote-6">resources (6.1)</a>.
+      </p>
+    </div>
+  </div>
+
+  <div id="key-7" class="container-fluid mt-4">
+    <h2 class="border-bottom">7. Make it easy to get the latest deliverables</h2>
+    <div class="text-center">
+      <img class="col-4" src="images/easy_latest_deliverables.jpg">
+      <p>
+        Everyone (even people outside of the dev team) should be able to see the <span class="text-success">latest working product</span>.
+      </p>
+    </div>
+    <div>
+      <h4 id="#backlink-7" class="ml-3">Use Github Releases <a href="#footnote-7"><sup><i>7.1</i></sup></a></h4>
+      <div class="text-center">
+        <img class="col-10" src="images/easy_latest_deliverables2.png">
+        <p class="mt-2">Github allows you to choose a <span class="text-success">git hash as the latest release</span>. You can also download a <span class="text-success">zip or tar.gz</span> of
+          the git repo at the given git hash.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="key-8" class="container-fluid mt-4">
+    <h2 class="border-bottom">8. Keep the team updated on the codebase status</h2>
+    <p>
+      The team should be <span class="text-success">familiar with the codebase status</span>: if a code review needs to be done, tests are failing on master, or if any bugs are found.
+    </p>
+    <h4>Github Projects (free)</h4>
+    <div class="container-fluid text-center">
+      <img class="col-10" src="images/github_projects.png">
+      <p class="ml-3">Creating tables like this is a common way developers can quickly communicate what they are working on and how much more work needs to be done.</p>
+    </div>
+    <h4>Jira (has free version)</h4>
+    <div class="container-fluid text-center">
+      <img class="col-10" src="images/jiraExample.png">
+      <p class="ml-3">
+        Jira is the industry standard for working in a large groups and codebase. It contains more features (user's permission, roles, etc), but is more
+        complicated to setup and use. Github Projects should be enough for what we are doing in class.
+      </p>
+    </div>
+  </div>
+
+  <div id="key-9" class="container-fluid mt-4">
+    <h2 class="border-bottom">9. Automate build deployment</h2>
+    <p>
+      This means having an automatic system to upload code from the master branch to production (what clients will use).
+      You will often see <span class="text-success">CI/CD, which stands for Continuous Integration and Continuous Delivery/Deployment</span>.
+      <br/>
+      - Continuous Delivery is <span class="text-success">putting development code into production</span> (think of uploading your code to a web server).
+      <br/>
+      - Continuous Deployment is the <span class="text-success"> process of automatically updating the production code</span> (there won't be any release days; push to production when ready)
+      <br/>
+      <br/>
+      CD is beyond the scope of this Ted Talk, but there are some resources at the end of this page (<a href="#9.1">overview(9.1)</a>, <a href="#9.2">usage with GitHub(9.2)</a>)
+    </p>
+  </div>
+
+  <div id="hooks" class="container-fluid mt-4">
+    <h2 class="border-bottom">Git Hooks Tutorial<a href="#footnote-hook"><sup><i>10.1</i></sup></a></h2>
+    <div class="container-fluid mt-4">
+      <p>
+        <strong>Note</strong>: This tutorial assumes you're using a Unix shell. However, this is only relevant for the commands.
+        The general process will still be the same.
+      </p>
+      <ul>
+        <li> To start using Git hooks, navigate to the hooks folder located in the .git directory included with every Git repository.
+        Within this folder, you should see some .sample files:
+        <img src="images/hooks.png" style="width: 100%">
+        </li>
+        <li>
+          These hooks are currently deactivated; to activate them simply remove .sample from their name. This can be done with the
+          mv command: <code>mv &ltfilename.sample&gt &ltfilename&gt</code>.
+          <ul>
+            <li>The hooks are named after when they are run. You only need to activate the ones you want.</li>
+          </ul>
+        </li>
+        <li>
+          The hooks need to be executable or else they can't be run. To do this, run: <code>chmod +x &ltfile&gt</code>
+        </li>
+      </ul>
+      Now you're good to go! Just edit the files to add your script and Git will handle the rest.
+    </div>
+  </div>
+
+  <div id="actions" class="container-fluid mt-4">
+    <h2 class="border-bottom">GitHub Actions Tutorial<a href="#footnote-action"><sup><i>10.2</i></sup></a></h2>
+    <p>How to make sure your python code compiles</p>
+    <ol>
+      <li>Create a new repository with a README.md</li>
+      <li>Click on "actions" (look at the tabs, between "Pull requests" and "Projects")</li>
+      <li>Find the "Simple workflow" and click on "Set up this workflow"<br/><img class="col-4" src="images/simple-workflow.png"></li>
+      <li>Scroll down, click "Start commit" and click "Commit new file"</li>
+      <li>Go to root directory of project</li>
+      <li>After a minute, there should be a green arrow on your screen to show the action passed.<br/><img class="col-10" src="images/pass-action.png"></li>
+      <li>This action only prints out "Hello, World!", but you can do more complicated tests, like making sure code compiles. More resources can be found
+      by looking at our resources <a href="#footnote-action"><i>below(10.2)</i></a></li>.
+    </ol>
+  </div>
+
+  <div class="container-fluid mt-4 mb-4">
+    <h2 class="border-bottom">Sources and More Reading</h2>
+    <div class="container-fluid" id="footnote-1">
+      <a href="#key-0"><sup><i>0.1</i></sup></a>
+      https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+    </div>
+
+    <div class="container-fluid" id="footnote-2">
+      <a href="#backlink-2"><sup><i>2.1</i></sup></a>
+      https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+    </div>
+
+    <div class="container-fluid" id="footnote-6">
+      <a href="#key-6"><sup><i>6.1</i></sup></a>
+      https://www.docker.com/get-started#nav-for-developers-tab
+    </div>
+
+    <div class="container-fluid" id="footnote-7">
+      <a href="#backlink-7"><sup><i>7.1</i></sup></a>
+      https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository
+    </div>
+
+    <div class="container-fluid" id="footnote-9">
+      <a href="#key-9" id="9.1"><sup><i>9.1</i></sup></a>
+      https://www.atlassian.com/continuous-delivery/continuous-deployment
+      <br/>
+      <a href="#key-9" id="9.2"><sup><i>9.2</i></sup></a>
+      https://medium.com/@sairamkrish/git-branching-strategy-for-true-continuous-delivery-eade4435b57e
+    </div>
+
+    <div class="container-fluid" id="footnote-hook">
+      <a href="#hooks"><sup><i>10.1</i></sup></a>
+      https://git-scm.com/docs/githooks
+    </div>
+
+    <div class="container-fluid" id="footnote-action">
+      <a href="#actions"><sup><i>10.2</i></sup></a>
+      https://github.com/features/actions
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
