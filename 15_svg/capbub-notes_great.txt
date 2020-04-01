@@ -1,0 +1,31 @@
+Team Great - Ivan Galakhov & Eric Lam
+SoftDev pd1
+K15 -- Capture Bubble Toil Trouble
+2020-04-01
+
+1
+Prediction: Upon clicking on each cell, an alert will pop up with the text in the cell
+as the message.
+Actual: As predicted.
+
+2
+Prediction: Upon clicking on the table but not on a cell (i.e. on the border), only the
+table's alert message will be sent. Upon clicking on a cell, as JS events bubble up through
+the DOM by default, the cell's alert will occur first, followed by the row's and the table's.
+Actual: As predicted.
+
+3
+Prediction: Without uncommenting stopPropagation, the table's pop up will occur first, then
+the row's, then the table's as the true argument in the table's eventListener sets the
+propagation mode to capture. Uncommenting stopPropagation will stop the event's propagation,
+so only the table's alert will occur.
+Actual: The event was captured at the table's level, but then bubbled up from the cell as the
+rows' eventListener was not set to capture. The alerts actually occurred in the following
+order: table, cell, row. Uncommenting stopPropagation did stop the propagation early, so
+only the table's alert occurred.
+
+4
+Prediction: The order the eventListeners are added does not matter. As all the eventListeners
+are set to capture, the table's alert will occur first, followed by the row's and the cell's.
+Uncommenting stopPropagation will stop the propagation after the table's alert.
+Actual: As predicted.
