@@ -6,9 +6,10 @@
     ...but will yield only blank page at first.
   -->
 <!--
-Clyde "Thluffy" Sinclair
-SoftDev2 pd0
-2099-12-31    
+Team Great - Ivan Galakhov & Eric Lam
+SoftDev pd1
+K16 -- Dabbling in D3
+2020-04-02
 -->
 
 <style>
@@ -57,3 +58,17 @@ SoftDev2 pd0
     barEnter.text(function(d) { return d; });
   -------------------------------->
   
+<!--
+- data is a list, as expected
+- chart is a PT object
+- bar is also a PT object
+- barUpdate is a PT object but it has more fields (_enter and _exit)
+- barEnter is a PT object
+
+- chart's parent is html whereas the others' parent is div.chart
+- chart's _group is an array of size 1, bar's is a nodelist of size 0, and the rest have
+  an array of size 6
+- Appending 'div' to barUpdate.enter() actually appends the elements to the DOM.
+- It's really convenient being able to use functions in the styling.
+- The last two commands returned a weird PT object.
+-->
