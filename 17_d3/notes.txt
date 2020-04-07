@@ -1,0 +1,11 @@
+Team Gordo Tech - Matthew Chan & Eric Lam
+SoftDev pd1
+K17 -- Deeper Into D3
+2020-04-03
+
+- histogram.thresholds adds x0 and x1 to the arrays, which are the lower and upper
+bounds of that bin
+- .extent(Array) returns the min and max
+- .nice() rounds off the domain
+- .call() is used to call functions
+- axes are generated with with the element as a parameter, so .call() is necessary
