@@ -4,19 +4,12 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 
+def get_data():
+    return ''
 
 @app.route('/', methods=['GET', 'POST'])
 def root():
-    return render_template('main.html')
-
-
-@app.route('/data')
-def data():
-    return jsonify(get_data())
-
-
-def get_data():
-    return ''
+    return render_template('main.html', data = get_data())
 
 
 if __name__ == '__main__':

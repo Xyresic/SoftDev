@@ -27,6 +27,11 @@ let render = () => {
     });
 };
 
+let data = Object.assign()
+
+//let color = d3.scaleSequential()
+//                .domain()
+
 rend_btn.addEventListener('click', render);
 
 
