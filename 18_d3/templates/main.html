@@ -1,0 +1,23 @@
+{% extends 'template.html' %}
+
+{% block title %}
+    COVID-19 Progression
+{% endblock %}
+
+{% block head %}
+    <link rel="shortcut icon" href="#">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid m-3">
+        <button type="button" class="btn btn-outline-primary" id="render">Render</button>
+        <button type="button" class="btn btn-outline-primary" id="transition">Transition</button>
+        <div id="map" class="container"></div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+<script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+<script src="http://d3js.org/topojson.v3.min.js"></script>
+<script src="../static/transition.js"></script>
+{% endblock %}
