@@ -66,7 +66,7 @@ Europe & Central Asia,ECS,918793590
 Ecuador,ECU,17084357
 "Egypt, Arab Rep.",EGY,98423595
 Euro area,EMU,341783171
-Eritrea,ERI,
+Eritrea,ERI,3452786
 Spain,ESP,46796540
 Estonia,EST,1321977
 Ethiopia,ETH,109224559
@@ -257,8 +257,11 @@ Vietnam,VNM,95540395
 Vanuatu,VUT,292680
 World,WLD,7594270356
 Samoa,WSM,196130
-Kosovo,XKX,1845300
+Kosovo,RKS,1845300
 "Yemen, Rep.",YEM,28498687
 South Africa,ZAF,57779622
 Zambia,ZMB,17351822
 Zimbabwe,ZWE,14439018
+Holy See,VAT,801
+Taiwan,TWN,23726460
+Western Sahara,ESH,567402
