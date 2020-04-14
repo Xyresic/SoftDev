@@ -69,7 +69,7 @@ get_data()
 
 @app.route('/', methods=['GET', 'POST'])
 def root():
-    return render_template('main.html')
+    return render_template('index.html')
 
 
 @app.route('/data')
