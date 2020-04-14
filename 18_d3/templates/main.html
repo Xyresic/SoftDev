@@ -9,10 +9,15 @@
 {% endblock %}
 
 {% block body %}
-    <div class="container-fluid m-3">
-        <button type="button" class="btn btn-outline-primary" id="render">Render</button>
-        <button type="button" class="btn btn-outline-primary" id="transition">Transition</button>
-        <div id="map" class="container"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+        <a class="navbar-brand">COVID-19 Progression</a>
+    </nav>
+    <div class="container-fluid p-3 mx-auto">
+        <div class="d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-primary mr-3" id="render">Render</button>
+            <button type="button" class="btn btn-outline-primary" id="transition" disabled>Play</button>
+        </div>
+        <div id="map" class="container" style="display: inline-block; max-width: 100%"></div>
     </div>
 {% endblock %}
 
