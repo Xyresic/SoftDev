@@ -100,10 +100,6 @@ let advance = () => {
     }, 150);
 };
 
-//let load_DOM = () => {
-//    document.addEventListener('DOMContentLoaded', render, false);
-//};
-
 d3.select('#map').append('svg').attr('viewBox', [0, 0, width, height])
                                 .style('max-height','85vh');
 trans_btn.style.pointerEvents = 'none';
