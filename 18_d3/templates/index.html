@@ -6,6 +6,11 @@
 
 {% block head %}
     <link rel="shortcut icon" href="#">
+    <style>
+        #tooltip {
+            position: absolute;
+        }
+    </style>
 {% endblock %}
 
 {% block body %}
@@ -19,6 +24,7 @@
         </div>
         <div id="map" class="container" style="display: inline-block; max-width: 100%"></div>
     </div>
+    <i id="tooltip" data-toggle="tooltip" data-placement="top" data-animation="false" data-html="true"></i>
 {% endblock %}
 
 {% block footer %}

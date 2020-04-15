@@ -58,12 +58,12 @@ def get_data():
             else:
                 pop = populations[row[6]]
             if name in list(parse[date]):
-                parse[date][name] = int(parse[date][name]*pop+int(row[5]))/pop
+                parse[date][name][0] = int(parse[date][name][0]*pop+int(row[5]))/pop
+                parse[date][name][1] += int(row[5])
             else:
-                parse[date][name] = int(row[5])/pop
+                parse[date][name] = [int(row[5])/pop, int(row[5])]
     return parse
 
-get_data()
 
 @app.route('/', methods=['GET', 'POST'])
 def root():
