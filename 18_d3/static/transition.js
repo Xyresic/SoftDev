@@ -4,7 +4,7 @@ let trans_btn = document.getElementById('transition');
 let json_url = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-10m.json';
 let width = 1000;
 let height = 500;
-let date = new Date('2020-01-22');
+let date;
 let timer;
 
 let get_date = () => {
@@ -44,9 +44,9 @@ let render = () => {
         d3.select('svg').append('g').selectAll('path')
             .data(countries.features)
             .join('path')
-            .attr('d', path)
-            .attr('fill', d => fill(d))
-            .classed('has_data', d => fill(d) == 'rgb(204, 204, 205)')
+                .attr('d', path)
+                .attr('fill', d => fill(d))
+                .classed('has_data', d => fill(d) == 'rgb(204, 204, 205)');
     });
 
     d3.select('svg').append('text')
@@ -54,19 +54,21 @@ let render = () => {
                     .attr('y', height-5)
                     .attr('text-anchor','middle')
                     .text(get_date_formatted())
-        .style('font', 'bold 30px sans-serif');
+                    .style('font', 'bold 30px sans-serif');
 };
 
 let advance = () => {
     trans_btn.setAttribute('disabled','');
     trans_btn.style.pointerEvents = 'none';
+
     timer = d3.interval((elapsed) => {
         date.setDate(date.getDate() + 1);
         d3.select('text').text(get_date_formatted());
+
         d3.selectAll('.has_data').transition()
             .duration(100)
             .attr('fill', d => fill(d));
-        if (elapsed > 150 * 81) t.stop();
+        if (elapsed > 150 * 81) timer.stop();
     }, 150);
 };
 

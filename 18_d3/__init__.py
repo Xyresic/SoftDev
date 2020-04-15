@@ -27,8 +27,6 @@ rename = {
     "Western Sahara":"W. Sahara"
 }
 
-manual = []
-
 
 def get_data():
     parse = {}
