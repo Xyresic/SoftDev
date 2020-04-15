@@ -93,9 +93,19 @@ let advance = () => {
         date.setDate(date.getDate() + 1);
         d3.select('text').text(get_date_formatted());
 
+        let hover = document.querySelectorAll(':hover');
+        let country = hover[hover.length-1];
+        if (country.tagName == 'path') {
+            d3.select('#tooltip')
+                .attr('data-original-title', format_tooltip(d3.select(country).data()[0]));
+            $('[data-toggle="tooltip"]').tooltip('hide');
+            $('[data-toggle="tooltip"]').tooltip('show');
+        }
+
         d3.selectAll('.has_data').transition()
             .duration(100)
             .attr('fill', d => color(get_percent(d)));
+
         if (elapsed > 150 * 81) timer.stop();
     }, 150);
 };
