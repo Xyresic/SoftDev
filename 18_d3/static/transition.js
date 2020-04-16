@@ -87,43 +87,47 @@ let render = () => {
                 .classed('has_data', d => color(get_percent(d)) == 'rgb(204, 204, 205)')
                 .on('mousemove', display_tooltip)
                 .on('mouseleave', hide_tooltip);
+
+        d3.select('svg').append('image')
+            .attr('x', 100)
+            .attr('y', 90)
+            .attr('width', 10)
+            .attr('height', 320)
+            .attr('preserveAspectRatio', 'none')
+            .attr('xlink:href', ramp(color.interpolator()).toDataURL());
+
+        let scale = Object.assign(color.copy().domain([0, 0.2]).interpolator(
+            d3.interpolateRound(0, 320)), {
+            range() {
+                return [0, 320];
+            }
+        });
+        let tickAdjust = g => {
+            g.selectAll('.tick line').attr('x2', 10).attr('x1', -10);
+        };
+        d3.select('svg').append('g')
+            .attr('transform', 'translate(100,90)')
+            .call(d3.axisLeft(scale)
+                .ticks(320 / 64)
+                .tickSize(10))
+            .call(tickAdjust)
+            .call(g => g.select('.domain').remove())
+            .call(g => g.append('text')
+                .text('Cases (% of Population)')
+                .attr('x', 0)
+                .attr('y', 340)
+                .attr('fill', 'black')
+                .attr('text-anchor', 'middle')
+                .style('font', 'bold'));
+
+        d3.select('svg').append('text')
+            .attr('x', '50%')
+            .attr('y', height - 8)
+            .attr('text-anchor', 'middle')
+            .text(get_date_formatted())
+            .style('font', 'bold 30px sans-serif')
+            .classed('date', true);
     });
-
-    d3.select('svg').append('image')
-                    .attr('x', 100)
-                    .attr('y', 90)
-                    .attr('width', 10)
-                    .attr('height', 320)
-                    .attr('preserveAspectRatio','none')
-                    .attr('xlink:href', ramp(color.interpolator()).toDataURL());
-
-    let scale = Object.assign(color.copy().domain([0,0.2]).interpolator(
-        d3.interpolateRound(0,320)), {range() {return [0, 320];}});
-    let tickAdjust = g => {
-        g.selectAll('.tick line').attr('x2',10).attr('x1',-10);
-    };
-    d3.select('svg').append('g')
-                    .attr('transform', 'translate(100,90)')
-                    .call(d3.axisLeft(scale)
-                        .ticks(320/64)
-                        .tickSize(10))
-                    .call(tickAdjust)
-                    .call(g => g.select('.domain').remove())
-                    .call(g => g.append('text')
-                                .text('Cases (% of Population)')
-                                .attr('x',0)
-                                .attr('y',340)
-                                .attr('fill','black')
-                                .attr('text-anchor','middle')
-                                .style('font', 'bold'));
-
-    d3.select('svg').append('text')
-                    .attr('x', '50%')
-                    .attr('y', height-8)
-                    .attr('text-anchor','middle')
-                    .text(get_date_formatted())
-                    .style('font', 'bold 30px sans-serif')
-                    .classed('date', true);
 };
 
 let advance = () => {
