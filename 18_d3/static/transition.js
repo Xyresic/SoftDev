@@ -57,6 +57,18 @@ let hide_tooltip = function(d) {
     $('[data-toggle="tooltip"]').tooltip('hide');
 };
 
+function ramp(color, n = 256) {
+    let canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = n;
+    const context = canvas.getContext("2d");
+    for (let i = 0; i < n; ++i) {
+        context.fillStyle = color(i / (n - 1));
+        context.fillRect(0, i, 1, 1);
+    }
+    return canvas;
+};
+
 let render = () => {
     if (timer != null) timer.stop();
     rend_btn.innerText = 'Reset';
@@ -77,12 +89,41 @@ let render = () => {
                 .on('mouseleave', hide_tooltip);
     });
 
+    d3.select('svg').append('image')
+                    .attr('x', 100)
+                    .attr('y', 90)
+                    .attr('width', 10)
+                    .attr('height', 320)
+                    .attr('preserveAspectRatio','none')
+                    .attr('xlink:href', ramp(color.interpolator()).toDataURL());
+
+    let scale = Object.assign(color.copy().domain([0,0.2]).interpolator(
+        d3.interpolateRound(0,320)), {range() {return [0, 320];}});
+    let tickAdjust = g => {
+        g.selectAll('.tick line').attr('x2',10).attr('x1',-10);
+    };
+    d3.select('svg').append('g')
+                    .attr('transform', 'translate(100,90)')
+                    .call(d3.axisLeft(scale)
+                        .ticks(320/64)
+                        .tickSize(10))
+                    .call(tickAdjust)
+                    .call(g => g.select('.domain').remove())
+                    .call(g => g.append('text')
+                                .text('Cases (% of Population)')
+                                .attr('x',0)
+                                .attr('y',340)
+                                .attr('fill','black')
+                                .attr('text-anchor','middle')
+                                .style('font', 'bold'));
+
     d3.select('svg').append('text')
                     .attr('x', '50%')
                     .attr('y', height-8)
                     .attr('text-anchor','middle')
                     .text(get_date_formatted())
-                    .style('font', 'bold 30px sans-serif');
+                    .style('font', 'bold 30px sans-serif')
+                    .classed('date', true);
 };
 
 let advance = () => {
@@ -91,7 +132,7 @@ let advance = () => {
 
     timer = d3.interval((elapsed) => {
         date.setDate(date.getDate() + 1);
-        d3.select('text').text(get_date_formatted());
+        d3.select('.date').text(get_date_formatted());
 
         let hover = document.querySelectorAll(':hover');
         let country = hover[hover.length-1];
