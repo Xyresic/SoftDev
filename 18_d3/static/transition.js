@@ -1,3 +1,8 @@
+//Eric Lam
+//SoftDev pd1
+//K18 -- Come Up For Air
+//2020-04-21
+
 let rend_btn = document.getElementById('render');
 let trans_btn = document.getElementById('transition');
 
