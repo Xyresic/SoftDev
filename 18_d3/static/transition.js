@@ -113,7 +113,7 @@ let render = () => {
         d3.select('svg').append('g')
             .attr('transform', 'translate(100,90)')
             .call(d3.axisLeft(scale)
-                .ticks(320 / 64)
+                .ticks(5)
                 .tickSize(10))
             .call(tickAdjust)
             .call(g => g.select('.domain').remove())
@@ -156,7 +156,7 @@ let advance = () => {
             .duration(100)
             .attr('fill', d => color(get_percent(d)));
 
-        if (elapsed > 150 * 81) timer.stop();
+        if (elapsed > 150 * 89) timer.stop();
     }, 150);
 };
 
