@@ -156,7 +156,7 @@ let advance = () => {
             .duration(100)
             .attr('fill', d => color(get_percent(d)));
 
-        if (elapsed > 150 * 89) timer.stop();
+        if (elapsed > 150 * 90) timer.stop();
     }, 150);
 };
 
